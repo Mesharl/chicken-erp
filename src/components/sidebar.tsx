@@ -39,7 +39,7 @@ export function Sidebar() {
     <aside className="hidden w-64 shrink-0 border-r border-[var(--border)] bg-white p-4 md:flex md:flex-col">
       <div className="mb-8 border-b border-[var(--border)] px-3 pb-5">
         <div className="text-lg font-semibold tracking-tight">Mama Suubi&apos;s Farm</div>
-        <div className="mt-1 text-xs text-[var(--muted)]">Poultry farm management</div>
+        <div className="mt-1 text-xs text-[var(--muted)]">Farm management</div>
       </div>
       <nav className="space-y-1">
         {items.map(([label, href, Icon]) => {
@@ -61,7 +61,7 @@ export function Sidebar() {
         })}
       </nav>
       <div className="mt-auto border-t border-[var(--border)] px-3 pt-5 text-xs text-[var(--muted)]">
-        Single farm workspace
+        One farm workspace
       </div>
     </aside>
   );
