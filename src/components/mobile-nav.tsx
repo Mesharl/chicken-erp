@@ -13,7 +13,7 @@ import {
 
 const items = [
   ["Home", "/", LayoutDashboard],
-  ["Farms", "/farms", Building2],
+  ["Farm", "/farms", Building2],
   ["Flocks", "/flocks", Bird],
   ["Eggs", "/production", Egg],
   ["Stock", "/inventory", Boxes],
@@ -36,7 +36,7 @@ export function MobileNav() {
                 active ? "text-[var(--accent)]" : "text-[var(--muted)]"
               }`}
             >
-              <Icon size={20} />
+              <Icon size={20} strokeWidth={1.8} />
               {label}
             </Link>
           );
