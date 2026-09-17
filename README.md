@@ -1,6 +1,6 @@
 # Chicken ERP
 
-Production-oriented poultry enterprise resource planning for Kenya and African poultry businesses.
+Production-oriented poultry farm management software for a single farm account.
 
 ## Stack
 
@@ -11,22 +11,25 @@ Production-oriented poultry enterprise resource planning for Kenya and African p
 - Mobile-friendly navigation shell
 - Vercel-ready deployment
 
-## Modules
+## Product scope
 
-1. Organizations, users, roles and permissions
-2. Farms, houses and capacity
-3. Flocks and flock lifecycle
-4. Daily operations, mortality, weights and observations
-5. Feed inventory and consumption
-6. Veterinary health, vaccination, treatment and disease incidents
-7. Egg production and grading
-8. Inventory and stock ledger
-9. Suppliers and purchasing (with line items)
-10. Customers, sales, payments and deliveries
-11. Expenses and financial transactions
-12. Employees
-13. Notifications, tasks and audit logs
-14. Management analytics
+The system is designed around one farm and its day-to-day operations:
+
+1. Farm and house setup
+2. Flocks and flock lifecycle
+3. Daily operations, mortality, weights and observations
+4. Feed inventory and consumption
+5. Veterinary health, vaccination, treatment and disease incidents
+6. Egg production and grading
+7. Inventory and stock ledger
+8. Suppliers and purchasing
+9. Customers, sales, payments and deliveries
+10. Expenses and financial transactions
+11. Employees and access
+12. Notifications, tasks and audit logs
+13. Management reports
+
+The application starts with an empty operational state. It does not ship with fabricated farms, flocks, employees, sales, purchases, stock, production or health records.
 
 ## Architecture rule
 
@@ -40,9 +43,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open http://localhost:3000. The UI runs on realistic mock data until Supabase is connected.
-
-Create a Supabase project, then apply `supabase/migrations/0001_initial_schema.sql` in the SQL editor or through your migration workflow.
+Open http://localhost:3000. Connect Supabase before entering real farm data.
 
 ## Environment variables
 
@@ -63,13 +64,13 @@ See `.env.example`. Never expose a Supabase service role key in the browser.
 ## Production roadmap
 
 1. Foundation and security
-2. Poultry operations
+2. Farm setup and poultry operations
 3. Inventory
 4. Sales and purchasing
 5. Finance
-6. Analytics
-7. Mobile and offline
-8. AI assistance
+6. Reports
+7. Mobile and offline workflows
+8. Optional AI assistance
 
 ## License
 
