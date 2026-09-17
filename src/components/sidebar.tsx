@@ -19,7 +19,7 @@ import {
 
 const items = [
   ["Dashboard", "/", LayoutDashboard],
-  ["Farms", "/farms", Building2],
+  ["Farm", "/farms", Building2],
   ["Flocks", "/flocks", Bird],
   ["Production", "/production", Egg],
   ["Feed", "/feed", Wheat],
@@ -37,9 +37,9 @@ export function Sidebar() {
 
   return (
     <aside className="hidden w-64 shrink-0 border-r border-[var(--border)] bg-white p-4 md:flex md:flex-col">
-      <div className="mb-8 px-3">
-        <div className="text-xl font-bold tracking-tight">Chicken ERP</div>
-        <div className="text-xs text-[var(--muted)]">Poultry operations platform</div>
+      <div className="mb-8 border-b border-[var(--border)] px-3 pb-5">
+        <div className="text-lg font-semibold tracking-tight">Mama Suubi&apos;s Farm</div>
+        <div className="mt-1 text-xs text-[var(--muted)]">Poultry farm management</div>
       </div>
       <nav className="space-y-1">
         {items.map(([label, href, Icon]) => {
@@ -48,20 +48,20 @@ export function Sidebar() {
             <Link
               key={href}
               href={href}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors ${
+              className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
                 active
                   ? "bg-[var(--accent)] text-white"
                   : "text-slate-600 hover:bg-slate-100"
               }`}
             >
-              <Icon size={18} />
+              <Icon size={18} strokeWidth={1.8} />
               {label}
             </Link>
           );
         })}
       </nav>
-      <div className="mt-auto px-3 pt-6 text-xs text-[var(--muted)]">
-        Kenya poultry operations
+      <div className="mt-auto border-t border-[var(--border)] px-3 pt-5 text-xs text-[var(--muted)]">
+        Single farm workspace
       </div>
     </aside>
   );
