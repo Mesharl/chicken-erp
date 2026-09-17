@@ -3,8 +3,8 @@ import "./globals.css";
 import { AppShell } from "@/components/app-shell";
 
 export const metadata: Metadata = {
-  title: "Chicken ERP",
-  description: "Farm management and poultry operations software"
+  title: "Mama Suubi's Farm",
+  description: "Poultry farm management and daily operations"
 };
 
 export default function RootLayout({
