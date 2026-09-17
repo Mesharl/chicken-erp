@@ -1,78 +1,49 @@
-import { StatCard } from "@/components/stat-card";
 import { QuickAction } from "@/components/quick-action";
 import { PageHeader } from "@/components/page-header";
-import { Badge } from "@/components/badge";
-import { dashboardMetrics, alerts, farms } from "@/lib/mock-data";
+
+const priorities = [
+  ["Set up your farm", "Add the farm details and poultry houses you use.", "/farms"],
+  ["Create your first flock", "Record the birds you currently have and when they arrived.", "/flocks"],
+  ["Start today's records", "Capture eggs, feed, mortality and health events as they happen.", "/production"]
+] as const;
 
 export default function DashboardPage() {
   return (
     <div className="p-5 md:p-8">
       <PageHeader
-        title="Dashboard"
-        description="Live view of flocks, production, feed, health and commercial activity."
+        title="Today"
+        description="A practical view of what is happening on Mama Suubi's Farm."
       />
 
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {dashboardMetrics.map((m) => (
-          <StatCard key={m.label} label={m.label} value={m.value} detail={m.detail} />
-        ))}
-      </section>
-
-      <section className="mt-8 grid gap-6 lg:grid-cols-3">
-        <div className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm lg:col-span-2">
-          <div className="flex items-center justify-between">
-            <h2 className="font-semibold">Farms overview</h2>
-            <Badge tone="accent">3 active</Badge>
-          </div>
-          <div className="mt-4 overflow-x-auto">
-            <table className="w-full min-w-[480px] text-left text-sm">
-              <thead>
-                <tr className="border-b border-[var(--border)] text-[var(--muted)]">
-                  <th className="pb-2 font-medium">Farm</th>
-                  <th className="pb-2 font-medium">Location</th>
-                  <th className="pb-2 font-medium">Birds</th>
-                  <th className="pb-2 font-medium">Houses</th>
-                  <th className="pb-2 font-medium">Production</th>
-                </tr>
-              </thead>
-              <tbody>
-                {farms.map((f) => (
-                  <tr key={f.id} className="border-b border-[var(--border)] last:border-0">
-                    <td className="py-3 font-medium">{f.name}</td>
-                    <td className="py-3 text-[var(--muted)]">{f.location}</td>
-                    <td className="py-3">{f.birds.toLocaleString()}</td>
-                    <td className="py-3">{f.houses}</td>
-                    <td className="py-3">{f.production}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      <section className="border border-[var(--border)] bg-white p-5 md:p-6">
+        <div className="max-w-2xl">
+          <p className="text-xs font-medium uppercase tracking-[0.12em] text-[var(--muted)]">Farm status</p>
+          <h2 className="mt-2 text-xl font-semibold">Your records are ready to begin</h2>
+          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+            The dashboard will calculate your live bird count, production, feed position, income and expenses from the records you enter. Nothing is filled in until it comes from your farm.
+          </p>
         </div>
 
-        <div className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm">
-          <h2 className="font-semibold">Alerts</h2>
-          <div className="mt-4 space-y-3">
-            {alerts.map((a) => (
-              <div
-                key={a}
-                className="rounded-xl border border-amber-100 bg-amber-50 p-3 text-sm text-amber-950"
-              >
-                {a}
-              </div>
-            ))}
-          </div>
+        <div className="mt-6 grid gap-px border border-[var(--border)] bg-[var(--border)] md:grid-cols-3">
+          {priorities.map(([title, description, href]) => (
+            <a key={href} href={href} className="bg-white p-4 hover:bg-[var(--background)]">
+              <p className="text-sm font-semibold">{title}</p>
+              <p className="mt-1 text-sm leading-5 text-[var(--muted)]">{description}</p>
+              <span className="mt-4 inline-block text-sm font-medium text-[var(--accent)]">Open</span>
+            </a>
+          ))}
         </div>
       </section>
 
       <section className="mt-8">
-        <h2 className="mb-4 font-semibold">Quick operations</h2>
+        <h2 className="mb-3 text-base font-semibold">Daily records</h2>
+        <p className="mb-4 text-sm text-[var(--muted)]">Keep the routine simple. Record the events that change the farm position.</p>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <QuickAction label="Record eggs" href="/production" />
           <QuickAction label="Record mortality" href="/flocks" />
           <QuickAction label="Record feed" href="/feed" />
-          <QuickAction label="Vaccination" href="/health" />
-          <QuickAction label="New sale" href="/sales" />
+          <QuickAction label="Record health" href="/health" />
+          <QuickAction label="Record sale" href="/sales" />
         </div>
       </section>
     </div>
